@@ -3,7 +3,7 @@ FROM node:22-alpine
 # Prepare dependencies
 WORKDIR /app
 COPY package.json .
-RUN npm install --omit=dev
+RUN npm install
 
 # Copy source code
 COPY . .
