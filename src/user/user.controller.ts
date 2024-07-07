@@ -9,6 +9,7 @@ export class UserController {
 
     @Get()
     async getTestUser() {
-        return this.userService.test();
+        // return this.userService.test();
+        return { id: 2, name: 'John Doe' }
     }
 }
