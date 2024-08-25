@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 
 @Controller('auth')
@@ -9,7 +9,9 @@ export class AuthController {
 
     // Registration endpoint
     @Post('register')
-    async register() {
+    async register(@Body() registerDto: { username: string, email: string, password: string }):
+        Promise<{ success: string, username: string, email: string, password: string }> {
+        return this.authService.register(registerDto);
         // Check account data
         // Create new account
         // Send verification email

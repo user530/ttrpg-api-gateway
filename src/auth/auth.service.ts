@@ -6,12 +6,13 @@ interface IUserData {
     username: string;
     email: string;
     password: string;
-    language: string;
-    timeZone: string
+    // language: string;
+    // timeZone: string
 }
 
 interface IUserEntity extends IUserData {
-    id: number;
+    // id: number;
+    success: string;
 }
 
 @Injectable()
@@ -25,7 +26,7 @@ export class AuthService {
         try {
             const result = await firstValueFrom(
                 this.authClient.send<IUserEntity, IUserData>(
-                    { cmd: 'register' },
+                    { cmd: 'test-register' },
                     userData,
                 )
             );
